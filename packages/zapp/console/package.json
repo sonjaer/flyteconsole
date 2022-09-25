@@ -12,6 +12,7 @@
         "build": "TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\"}' webpack --config webpack.dev.config.ts --mode=development",
         "build:prod": "TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\"}' NODE_ENV=production webpack --config webpack.prod.config.ts --mode=production --progress",
         "start": "webpack serve --config webpack.dev.config.ts --hot",
+        "start:dev": "ADMIN_API_URL=http://localhost:8088 webpack serve --open --config webpack.dev.config.ts --hot",
         "start:prod": "NODE_ENV=production node -r dotenv/config index.js",
         "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
         "format": "prettier --ignore-path .eslintignore --write \"**/*.+(js|jsx|ts|tsx|json)\"",
@@ -28,6 +29,7 @@
     "author": "Lyft <flyte-eng@lyft.com>",
     "license": "Apache-2.0",
     "dependencies": {
+        "@react-oauth/google": "^0.2.8",
         "@rjsf/core": "^3.2.1",
         "@rjsf/material-ui": "^3.2.1",
         "chalk": "^2.0.1",

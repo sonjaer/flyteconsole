@@ -26,6 +26,10 @@ async function request(
     responseType */
   options.headers = { Accept: 'application/octet-stream' };
   options.responseType = 'arraybuffer';
+  const googleIdToken = localStorage.getItem('googleIdToken');
+  if (googleIdToken) {
+    options.headers['flyte-authorization'] = googleIdToken;
+  }
   if (config.data) {
     options.headers['Content-Type'] = 'application/octet-stream';
   }
